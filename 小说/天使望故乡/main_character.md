@@ -1,0 +1,39 @@
+- Englishman Gilbert Gaunt 
+- ==second son Oliver Gaunt==
+---
+- Oliver's wife Cynthia(died for disease)
+- ==Eliza Pentland24== ^84b71e
+- Major Thomas Pentland(Eliza's father) died in May 1902
+- Bacchus Pentland 
+- Henry Pentland 30
+- Will Pentmand 26
+- Jim Pentland 22
+- Thaddeus Pentland  18
+- Elimer Pentland 15
+- Greeley Pentland 11
+---
+- Leslie Gant died at 26 months old (first-born)
+- Steve Gaunt 1885
+- Daisy Gaunt15month(move to Augusta after marriage)
+- Helen Gaunt -3years
+- Grover Gaunt( died of typhoid)  died in 1893 ^563950
+- Benjamin Gaunt (deep affection for EUGENE)
+- Luke Gaunt
+- Eugene Gaunt(well born)
+- Harry Tarkinton 
+- Max Isaacs(his talent of writing)
+- Otto Krause(14)
+- Bessie Barnes(13 girl)
+- Miss Groody
+- principal Armstrong
+- Willie Isaacs  the younger brother of Max
+- Mr McKissem （affection for Daisy)
+- Buster Isaacs （a cousin of Max）
+- people devoted to Helen (Hugh Parker, Jim Phelps, and Joe Cathcart)
+- Dixieland
+- Mary Thomas（young prostitute from Kentucky)
+- Genevieve Pratt (daughter of a schoolmaster)
+- Grace Deshaye(plumber's daughter)
+- Nan Gudger(close friend of Helen)
+- Mrs Selborne(mirage of affection)
+- Joe Gambell(Daisy's husband)

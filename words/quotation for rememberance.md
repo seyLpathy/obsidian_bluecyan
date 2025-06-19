@@ -1,0 +1,2 @@
+>[!quotation]
+>"In a remote village with a lush **canopy** of trees, where vibrant **daffodils** bloom beside the **paddy** fields, the local farmers practiced **husbandry** with meticulous care, ensuring their **pedigree** livestock were healthy, even as they battled the **imminent** threat of **polio** outbreaks, which often left them with splitting **migraines**, but they remained hopeful and united, much like a devoted **husband** supporting his family."
