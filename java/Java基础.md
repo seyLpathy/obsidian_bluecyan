@@ -103,9 +103,6 @@ java swing 图形化界面
 # 容器
 # 多线程
 **一个 Java 程序的运行是 main 线程和多个其他线程同时运行**
-![[
-
-]]
 **程序计数器主要有下面两个作用：**
 1. 字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如：顺序执行、选择、循环、异常处理。
 2. 在多线程的情况下，程序计数器用于记录当前线程执行的位置，从而当线程被切换回来的时候能够知道该线程上次运行到哪儿了。
@@ -119,28 +116,109 @@ java swing 图形化界面
 - WAITING：等待状态，表示该线程需要等待其他线程做出一些特定动作（通知或中断）。
 - TIME_WAITING：超时等待状态，可以在指定的时间后自行返回而不是像 WAITING 那样一直等待。
 - TERMINATED：终止状态，表示该线程已经运行完毕。
+![[Pasted image 20251001154226.png]]
 ==线程在生命周期中并不是固定处于某一个状态而是随着代码的执行在不同状态之间切换。==
 join()/start()
-## 线程优先级
-- The default priority is set to 5 as excepted.
-- Minimum priority is set to 1.
-- Maximum priority is set to 10.
-### 相关变量
+
+## 线程特性
+### 线程中断 interrupted thread
+```java
+Thread.currentThread().isInterrupted()   //判断当前线程是否为中断状态
+
+void interrupt()
+//如果当前进程处于阻塞block状态，则抛出InterruptedException并终结进程
+
+```
+### 守护进程（Daemon threads)
+```java
+t.setDaemon(true) //将进程转为守护进程
+t.setname("web crawler"); //线程命名
+```
+**当所有非守护进程结束，则守护进程终结
+守护线程是程序运行时在后台提供服务的线程，不属于程序中不可或缺的部分。
+当所有非守护线程结束时，程序也就终止，同时会杀死所有守护线程。
+main() 属于非守护线程。
+使用 setDaemon() 方法将一个线程设置为守护线程。**
+### 相关变量及方法
+#### 线程优先级
     1. public static int NORM_PRIORITY
     2. public static int MIN_PRIORITY
     3. public static int MAX_PRIORITY
-### 常用方法
 currentthread()/getname()获取当前线程的名字
 setname()修改线程名
 public final int getPriority(): java.lang.Thread.getPriority() 获取线程的优先值
 public final void setPriority(int newPriority):设定线程优先值
 thread scheduler’s algorithm(Round-Robin, First Come First Serve
+## 同步（synchronization)
+### 条件竞争（race condition)
+主要表现为不同线程竞争共享资源，引入原子性的概念
+![[Pasted image 20251001160707.png]]
+### 锁对象
+```java
+myLock.lock()  //a reentrantLock object
+try
+{
+//critical section
+}
+finally
+{
+myLock.unlock();  //锁使用完成后必须释放，否则容易出现死锁
+}
+```
+![[Pasted image 20251001161300.png]]
+### synchronized 关键字
+```java
+public synchronized void method()
+{
+ method body
+}
+// 两者相等价
+public void method()
+{
+this.intrinsicLock.lock();
+try{
+ method body
+}
+fnally
+{
+this.intrinsicLock.unlock();
+}
+}
+```
+[[condition_lock|锁/条件逻辑图]]
+volatile关键字表明修饰的变量可能会被并发的线程进行修改，确保不同线程对变量的修改能够被其他线程观测到
+
+- **变量 final**：值不能改（引用不可变，内容可变）。
+- **方法 final**：不能被重写。
+- **类 final**：不能被继承。
+- **形参 final**：方法体内不能修改引用
+### monitor监视器
+1. 只有私有域的类
+2. 存在一个关联锁
+3. 调用对象内部方法则自动获取锁
+4. 关联锁可以有任意数量的关联条件
+
+```java
+ThreadLocal.withInitial()
+- `get()`：获取当前线程的副本值。
+- `set(value)`：设置当前线程的副本值。
+- `remove()`：移除当前线程的副本值，防止内存泄漏。
+- `withInitial(Supplier)`：指定初始值
+```
+## 任务及线程池
+### callables and Futures
+callable相比于runnable有返回值
+![[Pasted image 20251001171634.png]]
+1. 调用newcachedThreadPool/newFixedThreadPool
+2. submit callable/runnable对象
+3. 挂起future对象以获取计算结果
+4. 调用shutdown
+```java
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder(URI.create(urlString)).GET().build();
+CompletetableFuture<HttpResponse<String>> f = client.sendAsync(request,BodyHandlers.ofString())
+```
 ![[Pasted image 20230927175602.png]]
-### daemon thread(守护线程)
-守护线程是程序运行时在后台提供服务的线程，不属于程序中不可或缺的部分。
-当所有非守护线程结束时，程序也就终止，同时会杀死所有守护线程。
-main() 属于非守护线程。
-使用 setDaemon() 方法将一个线程设置为守护线程。
 ### join()
 在线程中调用另一个线程的 join() 方法，会将当前线程挂起，而不是忙等待，直到目标线程结束。
 对于以下代码，虽然 b 线程先启动，但是因为在 b 线程中调用了 a 线程的 join() 方法，b 线程会等待 a 线程结束才继续执行，因此最后能够保证 a 线程的输出先于 b 线程的输出。
