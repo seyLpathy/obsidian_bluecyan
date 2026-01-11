@@ -1,3 +1,10 @@
+---
+author: bluecyan
+tags:
+  - web_development
+  - react框架
+---
+
 ## goal 
 1. comfortable
 2. apply theory 
