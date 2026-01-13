@@ -1,3 +1,9 @@
+---
+tags:
+  - cpp
+  - programming_language
+---
+
 # friends,exceptions,and more
 ## friends
 >[!definition]

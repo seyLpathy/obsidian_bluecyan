@@ -19,3 +19,5 @@ npm install <package name> --save-dev //for dev only
 
 
 ```
+## functions and features
+[[react 常用函数]]
