@@ -16,7 +16,7 @@ npm init
 npm install <package name> --save
 npm install <package name> -g
 npm install <package name> --save-dev //for dev only
-
+npm start //start the project
 
 ```
 ## functions and features
