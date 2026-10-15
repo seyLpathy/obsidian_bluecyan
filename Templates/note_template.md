@@ -10,9 +10,11 @@ type:
   - reviews
   - mindstorm
   - records
+author: bluecyan
 ---
 
 ## 摘要
 >[!abstract]
 >start from here ...
 >
+
